@@ -1,0 +1,6 @@
+framework module Pods_TestDrawInPhoto {
+  umbrella header "Pods-TestDrawInPhoto-umbrella.h"
+
+  export *
+  module * { export * }
+}
