@@ -13,7 +13,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
     }
 
     @IBAction func cameraBtnPressed(_ sender: Any) {
@@ -25,8 +24,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
+        dismiss(animated: false) {
+            
+            if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+                let vc = CanvasViewController()
+                vc.imageView.image = image
+                
+                self.present(UINavigationController(rootViewController: vc), animated: false, completion: nil)
+            }
+        
+        }
+        
     }
     
 }
-
-
