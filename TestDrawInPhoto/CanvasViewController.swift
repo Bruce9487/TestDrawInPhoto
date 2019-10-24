@@ -26,30 +26,18 @@ class CanvasViewController: UIViewController {
         return ui
     }()
     
-    let clearButton: UIButton = {
-        let ui = UIButton()
-        ui.backgroundColor = .blue
-        ui.setTitleColor(.white, for: .normal)
-        ui.setTitle("清除畫板", for: .normal)
-        ui.addTarget(self, action: #selector(clearBtnPressed(sender:)), for: .touchUpInside)
-        return ui
-    }()
-    
-    let saveButton: UIButton = {
-        let ui = UIButton()
-        ui.backgroundColor = UIColor.brown
-        ui.setTitleColor(.white, for: .normal)
-        ui.setTitle("儲存至相簿", for: .normal)
-        ui.addTarget(self, action: #selector(saveBtnPressed(sender:)), for: .touchUpInside)
-        return ui
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.title = "塗鴉區"
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "取消", style: .done, target: self, action: #selector(cancelBtnPressed(sender:)))
-
+        
+        let save = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveBtnPressed(sender:)))
+        let redo = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(clearBtnPressed(sender:)))
+        let back = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(cancelBtnPressed(sender:)))
+        
+        self.navigationItem.rightBarButtonItems = [save, redo]
+        self.navigationItem.leftBarButtonItem = back
+        
         self.setupView()
     }
 
@@ -57,30 +45,13 @@ class CanvasViewController: UIViewController {
         
         self.view.addSubview(imageView)
         self.view.addSubview(canvasView)
-        self.view.addSubview(clearButton)
-        self.view.addSubview(saveButton)
         
         canvasView.snp.makeConstraints { (make) in
             make.top.equalTo(topLayoutGuide.snp.bottom)
             make.left.right.equalToSuperview()
-        }
-        
-        clearButton.snp.makeConstraints { (make) in
-            make.left.equalToSuperview()
             make.bottom.equalTo(bottomLayoutGuide.snp.top)
-            make.top.equalTo(canvasView.snp.bottom)
-            make.height.equalTo(60)
         }
-        
-        saveButton.snp.makeConstraints { (make) in
-            make.right.equalToSuperview()
-            make.bottom.equalTo(clearButton.snp.bottom)
-            make.left.equalTo(clearButton.snp.right)
-            make.top.equalTo(clearButton.snp.top)
-            make.width.equalTo(clearButton.snp.width)
-            make.height.equalTo(clearButton.snp.height)
-        }
-        
+                
         imageView.snp.makeConstraints { (make) in
             make.left.equalTo(canvasView.snp.left)
             make.top.equalTo(canvasView.snp.top)
