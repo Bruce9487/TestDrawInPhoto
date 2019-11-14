@@ -13,7 +13,7 @@ class CanvasViewController: UIViewController {
 
     let imageView: UIImageView = {
         let ui = UIImageView()
-        ui.contentMode = .scaleToFill
+        ui.contentMode = .scaleAspectFit
         return ui
     }()
     
@@ -22,7 +22,6 @@ class CanvasViewController: UIViewController {
         ui.backgroundColor = UIColor.clear
         ui.clipsToBounds = true
         ui.isMultipleTouchEnabled = false
-        ui.contentMode = .scaleAspectFill
         return ui
     }()
     
@@ -46,17 +45,21 @@ class CanvasViewController: UIViewController {
         self.view.addSubview(imageView)
         self.view.addSubview(canvasView)
         
-        canvasView.snp.makeConstraints { (make) in
-            make.top.equalTo(topLayoutGuide.snp.bottom)
-            make.left.right.equalToSuperview()
-            make.bottom.equalTo(bottomLayoutGuide.snp.top)
+        if #available(iOS 11.0, *) {
+            imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
+        } else {
+            imageView.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor, constant: 0).isActive = true
+        }
+        
+        imageView.snp.makeConstraints { (make) in
+            make.bottom.left.right.equalToSuperview()
         }
                 
-        imageView.snp.makeConstraints { (make) in
-            make.left.equalTo(canvasView.snp.left)
-            make.top.equalTo(canvasView.snp.top)
-            make.right.equalTo(canvasView.snp.right)
-            make.bottom.equalTo(canvasView.snp.bottom)
+        canvasView.snp.makeConstraints { (make) in
+            make.left.equalTo(imageView.snp.left)
+            make.top.equalTo(imageView.snp.top)
+            make.right.equalTo(imageView.snp.right)
+            make.bottom.equalTo(imageView.snp.bottom)
         }
         
     }
@@ -73,14 +76,13 @@ class CanvasViewController: UIViewController {
 
     @objc func saveBtnPressed(sender: UIButton) {
         
-        let size = CGSize(width: self.imageView.bounds.width, height: self.imageView.bounds.height)
+        let size = CGSize(width: self.imageView.frame.width, height: self.imageView.frame.height)
         
         let canvasImage: UIImage = self.canvasView.asImage()
         
         if let photoImage = self.imageView.image {
         
             //把兩個UIImage合再一起。參考：https://stackoverflow.com/a/32007118
-            
             UIGraphicsBeginImageContextWithOptions(size, false, 0) //讓照片畫質變好。 參考：https://stackoverflow.com/a/18030416
             let areaSize = CGRect(x: 0, y: 0, width: size.width, height: size.height)
             photoImage.draw(in: areaSize)
@@ -110,5 +112,24 @@ class CanvasViewController: UIViewController {
         }
     }
 
+    func saveImage(image: UIImage) -> Bool {
+        guard let data = image.jpegData(compressionQuality: 0.5) ?? image.pngData() else {
+            return false
+        }
+        guard let directory = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) as NSURL else {
+            return false
+        }
+        
+        print("===) \(directory)")
+        
+        do {
+            try data.write(to: directory.appendingPathComponent("fileName.png")!)
+            return true
+        } catch {
+            print(error.localizedDescription)
+            return false
+        }
+    }
+    
 }
 

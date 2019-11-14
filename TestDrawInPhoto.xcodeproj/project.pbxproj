@@ -18,6 +18,7 @@
 		3278F37C23331B0300D37FC1 /* CanvasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3278F37B23331B0300D37FC1 /* CanvasViewController.swift */; };
 		3278F37E23331EB700D37FC1 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3278F37D23331EB700D37FC1 /* CanvasView.swift */; };
 		3278F38023335F1100D37FC1 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3278F37F23335F1100D37FC1 /* UIViewExtension.swift */; };
+		3291EC28236AB029008C987A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3291EC27236AB029008C987A /* Extensions.swift */; };
 		ADB7BD988D9F31D3A82087AF /* Pods_TestDrawInPhotoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7943C64B845E44FD2D14962 /* Pods_TestDrawInPhotoUITests.framework */; };
 		CD171B6959B02EA261B69570 /* Pods_TestDrawInPhoto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 934DF6C18527D185784C15EE /* Pods_TestDrawInPhoto.framework */; };
 /* End PBXBuildFile section */
@@ -58,6 +59,7 @@
 		3278F37B23331B0300D37FC1 /* CanvasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasViewController.swift; sourceTree = "<group>"; };
 		3278F37D23331EB700D37FC1 /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
 		3278F37F23335F1100D37FC1 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		3291EC27236AB029008C987A /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		3E79D205BEB90A7BCA6703FD /* Pods-TestDrawInPhoto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestDrawInPhoto.release.xcconfig"; path = "Target Support Files/Pods-TestDrawInPhoto/Pods-TestDrawInPhoto.release.xcconfig"; sourceTree = "<group>"; };
 		5832D53D32463FEB9EDDFA15 /* Pods-TestDrawInPhotoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestDrawInPhotoTests.debug.xcconfig"; path = "Target Support Files/Pods-TestDrawInPhotoTests/Pods-TestDrawInPhotoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		934DF6C18527D185784C15EE /* Pods_TestDrawInPhoto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestDrawInPhoto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -139,6 +141,7 @@
 				3278F37B23331B0300D37FC1 /* CanvasViewController.swift */,
 				3278F37D23331EB700D37FC1 /* CanvasView.swift */,
 				3278F37F23335F1100D37FC1 /* UIViewExtension.swift */,
+				3291EC27236AB029008C987A /* Extensions.swift */,
 			);
 			path = TestDrawInPhoto;
 			sourceTree = "<group>";
@@ -396,6 +399,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3278F38023335F1100D37FC1 /* UIViewExtension.swift in Sources */,
+				3291EC28236AB029008C987A /* Extensions.swift in Sources */,
 				3278F35023323AC600D37FC1 /* ViewController.swift in Sources */,
 				3278F37C23331B0300D37FC1 /* CanvasViewController.swift in Sources */,
 				3278F37E23331EB700D37FC1 /* CanvasView.swift in Sources */,
