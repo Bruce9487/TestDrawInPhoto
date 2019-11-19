@@ -30,8 +30,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             
             if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
                 let vc = CanvasViewController()
-                vc.imageView.image = image
-                
+                vc.canvasImageView.image = image
+                vc.width = image.size.width
+                vc.height = image.size.height
                 self.present(UINavigationController(rootViewController: vc), animated: false, completion: nil)
             }
         

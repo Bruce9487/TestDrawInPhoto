@@ -16,7 +16,7 @@
 		3278F36323323AC700D37FC1 /* TestDrawInPhotoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3278F36223323AC700D37FC1 /* TestDrawInPhotoTests.swift */; };
 		3278F36E23323AC700D37FC1 /* TestDrawInPhotoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3278F36D23323AC700D37FC1 /* TestDrawInPhotoUITests.swift */; };
 		3278F37C23331B0300D37FC1 /* CanvasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3278F37B23331B0300D37FC1 /* CanvasViewController.swift */; };
-		3278F37E23331EB700D37FC1 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3278F37D23331EB700D37FC1 /* CanvasView.swift */; };
+		3278F37E23331EB700D37FC1 /* CanvasImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3278F37D23331EB700D37FC1 /* CanvasImageView.swift */; };
 		3278F38023335F1100D37FC1 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3278F37F23335F1100D37FC1 /* UIViewExtension.swift */; };
 		3291EC28236AB029008C987A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3291EC27236AB029008C987A /* Extensions.swift */; };
 		ADB7BD988D9F31D3A82087AF /* Pods_TestDrawInPhotoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7943C64B845E44FD2D14962 /* Pods_TestDrawInPhotoUITests.framework */; };
@@ -57,7 +57,7 @@
 		3278F36D23323AC700D37FC1 /* TestDrawInPhotoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDrawInPhotoUITests.swift; sourceTree = "<group>"; };
 		3278F36F23323AC700D37FC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3278F37B23331B0300D37FC1 /* CanvasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasViewController.swift; sourceTree = "<group>"; };
-		3278F37D23331EB700D37FC1 /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
+		3278F37D23331EB700D37FC1 /* CanvasImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasImageView.swift; sourceTree = "<group>"; };
 		3278F37F23335F1100D37FC1 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		3291EC27236AB029008C987A /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		3E79D205BEB90A7BCA6703FD /* Pods-TestDrawInPhoto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestDrawInPhoto.release.xcconfig"; path = "Target Support Files/Pods-TestDrawInPhoto/Pods-TestDrawInPhoto.release.xcconfig"; sourceTree = "<group>"; };
@@ -139,7 +139,7 @@
 				3278F35623323AC700D37FC1 /* LaunchScreen.storyboard */,
 				3278F35923323AC700D37FC1 /* Info.plist */,
 				3278F37B23331B0300D37FC1 /* CanvasViewController.swift */,
-				3278F37D23331EB700D37FC1 /* CanvasView.swift */,
+				3278F37D23331EB700D37FC1 /* CanvasImageView.swift */,
 				3278F37F23335F1100D37FC1 /* UIViewExtension.swift */,
 				3291EC27236AB029008C987A /* Extensions.swift */,
 			);
@@ -402,7 +402,7 @@
 				3291EC28236AB029008C987A /* Extensions.swift in Sources */,
 				3278F35023323AC600D37FC1 /* ViewController.swift in Sources */,
 				3278F37C23331B0300D37FC1 /* CanvasViewController.swift in Sources */,
-				3278F37E23331EB700D37FC1 /* CanvasView.swift in Sources */,
+				3278F37E23331EB700D37FC1 /* CanvasImageView.swift in Sources */,
 				3278F34E23323AC600D37FC1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

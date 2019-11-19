@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CanvasView: UIView {
+class CanvasImageView: UIImageView {
 
     var lineColor = UIColor.red
     var lineWidth: CGFloat = 10
@@ -29,7 +29,7 @@ class CanvasView: UIView {
         self.startingPoint = touchPoint
         self.draw()
     }
-    
+
     func draw() {
         let shapeLayer = CAShapeLayer()
         shapeLayer.path = path?.cgPath
