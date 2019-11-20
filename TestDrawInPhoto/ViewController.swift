@@ -9,8 +9,6 @@
 import UIKit
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
-    @IBOutlet weak var imageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,10 +16,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
 
     @IBAction func cameraBtnPressed(_ sender: Any) {
+        
         let imagePicker = UIImagePickerController()
         imagePicker.sourceType = .camera
         imagePicker.delegate = self
-        present(imagePicker, animated: true, completion: nil)
+        self.present(imagePicker, animated: true, completion: nil)
     }
 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -31,8 +30,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
                 let vc = CanvasViewController()
                 vc.canvasImageView.image = image
-                vc.width = image.size.width
-                vc.height = image.size.height
+                if image.size.width > image.size.height {
+                    vc.imageType = .horizontal
+                } else {
+                    vc.imageType = .vertical
+                }
                 self.present(UINavigationController(rootViewController: vc), animated: false, completion: nil)
             }
         

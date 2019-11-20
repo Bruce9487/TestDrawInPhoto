@@ -10,33 +10,18 @@ import Foundation
 import UIKit
 
 extension UIView {
-    
-    //把UIView轉成UIImage。參考：https://stackoverflow.com/a/41288197
-    
-    // Using a function since `var image` might conflict with an existing variable
-    // (like on `UIImageView`)
-    func asImage() -> UIImage {
-        if #available(iOS 10.0, *) {
-            let renderer = UIGraphicsImageRenderer(bounds: bounds)
-            return renderer.image { rendererContext in
-                layer.render(in: rendererContext.cgContext)
-            }
-        } else {
-            UIGraphicsBeginImageContext(self.frame.size)
-            self.layer.render(in:UIGraphicsGetCurrentContext()!)
-            let image = UIGraphicsGetImageFromCurrentImageContext()
+    /**
+     取得imageview圖片
+     */
+    var screenShot: UIImage?  {
+        let scale = UIScreen.main.scale
+        UIGraphicsBeginImageContextWithOptions(layer.frame.size, false, scale)
+        if let context = UIGraphicsGetCurrentContext() {
+            layer.render(in: context)
+            let screenshot = UIGraphicsGetImageFromCurrentImageContext()
             UIGraphicsEndImageContext()
-            return UIImage(cgImage: image!.cgImage!)
+            return screenshot
         }
-    }
-}
-
-extension UIImage {
-    class func imageWithLayer(layer: CALayer) -> UIImage? {
-        UIGraphicsBeginImageContextWithOptions(layer.bounds.size, layer.isOpaque, 0.0)
-        layer.render(in: UIGraphicsGetCurrentContext()!)
-        let img = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return img
+        return nil
     }
 }
