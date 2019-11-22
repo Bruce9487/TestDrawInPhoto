@@ -15,7 +15,7 @@ enum ImageType {
 }
 
 class CanvasViewController: UIViewController {
-
+    
     let canvasImageView: CanvasImageView = {
         let ui = CanvasImageView()
         ui.contentMode = .scaleAspectFit
@@ -28,11 +28,30 @@ class CanvasViewController: UIViewController {
         return ui
     }()
     
+    var width: CGFloat = 0.0
+    var height: CGFloat = 0.0
+    
+    //    var width: CGFloat = 0.0 {
+    //        didSet {
+    //            if width > 800 {
+    //                width = 800
+    //            }
+    //        }
+    //    }
+    //
+    //    var height: CGFloat = 0.0 {
+    //        didSet {
+    //            if height > 600 {
+    //                height = 600
+    //            }
+    //        }
+    //    }
+    
     var imageType: ImageType?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.title = "Color Yourself"
         
         let save = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveBtnPressed(sender:)))
@@ -44,33 +63,68 @@ class CanvasViewController: UIViewController {
         
         self.setupView()
     }
-
+    
     fileprivate func setupView() {
         
         self.view.addSubview(canvasImageView)
         
         if let imageType = self.imageType {
-         
+            
+            self.canvasImageView.snp.makeConstraints { (make) in
+                make.centerX.width.equalToSuperview()
+                make.centerY.equalToSuperview().offset(44)
+            }
+            
             switch imageType {
-        
+                
             case .horizontal:
                 
-                self.canvasImageView.snp.makeConstraints { (make) in
-                    make.centerY.centerX.width.equalToSuperview()
-                    make.height.equalToSuperview().multipliedBy(0.3460625)
+                switch UIDevice.current.screenType {
+                case .iPhones_4_4S, .iPhones_5_5s_5c_SE, .iPhones_6_6s_7_8, .iPhones_6Plus_6sPlus_7Plus_8Plus:
+                    
+                    self.canvasImageView.snp.makeConstraints { (make) in
+                        make.height.equalToSuperview().multipliedBy(0.425)
+                    }
+                case .iPhones_X_XS, .iPhone_XR, .iPhone_XSMax:
+                    
+                    self.canvasImageView.snp.makeConstraints { (make) in
+                        make.height.equalToSuperview().multipliedBy(0.3460625)
+                    }
+                case .unknown:
+                    self.canvasImageView.snp.makeConstraints { (make) in
+                        make.height.equalToSuperview().multipliedBy(0.56) // ipad
+                    }
+                    
                 }
                 
             case .vertical:
-                self.canvasImageView.snp.makeConstraints { (make) in
-                    make.centerY.centerX.width.equalToSuperview()
-                    make.height.equalToSuperview().multipliedBy(0.616)
+                
+                switch UIDevice.current.screenType {
+                case .iPhones_4_4S, .iPhones_5_5s_5c_SE, .iPhones_6_6s_7_8, .iPhones_6Plus_6sPlus_7Plus_8Plus:
+                    
+                    self.canvasImageView.snp.makeConstraints { (make) in
+                        make.height.equalToSuperview().multipliedBy(0.75)
+                    }
+                case .iPhones_X_XS, .iPhone_XR, .iPhone_XSMax:
+                    
+                    self.canvasImageView.snp.makeConstraints { (make) in
+                        make.height.equalToSuperview().multipliedBy(0.616)
+                    }
+                case .unknown:
+                    self.canvasImageView.snp.makeConstraints { (make) in
+                        make.height.equalToSuperview() // ipad
+                    }
+                    self.canvasImageView.snp.remakeConstraints { (make) in
+                        make.centerY.equalToSuperview() // ipad
+                    }
+                    
                 }
             }
             
         }
         
     }
-
+    
     //MARK: BUTTON ACTION
     
     @objc func cancelBtnPressed(sender: UIBarButtonItem) {
@@ -80,11 +134,19 @@ class CanvasViewController: UIViewController {
     @objc func clearBtnPressed(sender: UIButton) {
         canvasImageView.clearCanvas()
     }
-
+    
     @objc func saveBtnPressed(sender: UIButton) {
         
-        if let img = self.canvasImageView.screenShot {
-            UIImageWriteToSavedPhotosAlbum(img, self,#selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
+        if let img = self.canvasImageView.screenShot, let imageType = self.imageType {
+            
+            switch imageType {
+            case .horizontal:
+                let finalImage = img.resizeImageBy(height: self.height)
+                UIImageWriteToSavedPhotosAlbum(finalImage, self,#selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
+            case .vertical:
+                let finalImage = img.resizeImageBy(width: self.width)
+                UIImageWriteToSavedPhotosAlbum(finalImage, self,#selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
+            }
         }
         
     }

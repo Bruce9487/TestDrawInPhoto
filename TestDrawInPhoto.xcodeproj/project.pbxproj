@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		083D94D203F950DF0374033E /* Pods_TestDrawInPhotoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20240F798BEE77FD752E55D8 /* Pods_TestDrawInPhotoTests.framework */; };
+		3238D33A238666FF003B4C92 /* IMG_0798.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 3238D338238666FE003B4C92 /* IMG_0798.JPG */; };
+		3238D33B238666FF003B4C92 /* IMG_0799.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 3238D339238666FF003B4C92 /* IMG_0799.JPG */; };
 		3278F34E23323AC600D37FC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3278F34D23323AC600D37FC1 /* AppDelegate.swift */; };
 		3278F35023323AC600D37FC1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3278F34F23323AC600D37FC1 /* ViewController.swift */; };
 		3278F35323323AC600D37FC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3278F35123323AC600D37FC1 /* Main.storyboard */; };
@@ -43,6 +45,8 @@
 /* Begin PBXFileReference section */
 		0891B9BF46B13FC1E18F2422 /* Pods-TestDrawInPhotoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestDrawInPhotoUITests.debug.xcconfig"; path = "Target Support Files/Pods-TestDrawInPhotoUITests/Pods-TestDrawInPhotoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		20240F798BEE77FD752E55D8 /* Pods_TestDrawInPhotoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestDrawInPhotoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3238D338238666FE003B4C92 /* IMG_0798.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_0798.JPG; sourceTree = "<group>"; };
+		3238D339238666FF003B4C92 /* IMG_0799.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_0799.JPG; sourceTree = "<group>"; };
 		3278F34A23323AC600D37FC1 /* TestDrawInPhoto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestDrawInPhoto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3278F34D23323AC600D37FC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3278F34F23323AC600D37FC1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -142,6 +146,8 @@
 				3278F37D23331EB700D37FC1 /* CanvasImageView.swift */,
 				3278F37F23335F1100D37FC1 /* UIViewExtension.swift */,
 				3291EC27236AB029008C987A /* Extensions.swift */,
+				3238D338238666FE003B4C92 /* IMG_0798.JPG */,
+				3238D339238666FF003B4C92 /* IMG_0799.JPG */,
 			);
 			path = TestDrawInPhoto;
 			sourceTree = "<group>";
@@ -288,6 +294,8 @@
 				3278F35823323AC700D37FC1 /* LaunchScreen.storyboard in Resources */,
 				3278F35523323AC700D37FC1 /* Assets.xcassets in Resources */,
 				3278F35323323AC600D37FC1 /* Main.storyboard in Resources */,
+				3238D33B238666FF003B4C92 /* IMG_0799.JPG in Resources */,
+				3238D33A238666FF003B4C92 /* IMG_0798.JPG in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

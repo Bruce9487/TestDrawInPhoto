@@ -13,10 +13,24 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        print("screenType:", UIDevice.current.screenType)
+
     }
 
     @IBAction func cameraBtnPressed(_ sender: Any) {
-        
+
+//        let vc = CanvasViewController()
+//
+//        if let path = Bundle.main.path(forResource: "IMG_0798", ofType: "JPG"), let image = UIImage(contentsOfFile: path) {
+//            vc.canvasImageView.image = image
+//            if image.size.width > image.size.height {
+//                vc.imageType = .horizontal
+//            } else {
+//                vc.imageType = .vertical
+//            }
+//            self.present(UINavigationController(rootViewController: vc), animated: false, completion: nil)
+//        }
+
         let imagePicker = UIImagePickerController()
         imagePicker.sourceType = .camera
         imagePicker.delegate = self
@@ -30,6 +44,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
                 let vc = CanvasViewController()
                 vc.canvasImageView.image = image
+                vc.width = 2000
+                vc.height = 2000
                 if image.size.width > image.size.height {
                     vc.imageType = .horizontal
                 } else {
